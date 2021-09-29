@@ -1,0 +1,39 @@
+.outerGrid {
+	display: grid;
+	grid-template-columns: 1fr 2fr 1fr;
+	/* display: inline-flex; */
+}
+
+.outerGrid > div {
+	background-color: wheat;
+	color: white;
+	padding: 8px;
+  }
+
+.inerGrid {
+	display: grid;
+	grid-gap: 5px;
+	grid-template-columns:  repeat(15, 1fr);
+	/* display: inline-flex; */
+}
+
+.message{
+	text-align: center;
+	margin: 2%;
+}
+.inerGrid > div {
+	background: orange;
+  }
+
+.inerGrid > div> img {
+	pointer-events: "all"
+}
+  
+.inerGrid > div:hover {
+ background: orange;
+ border: solid red;
+}
+
+.profile{
+	width: 100%;
+}

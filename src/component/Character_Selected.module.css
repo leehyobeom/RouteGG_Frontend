@@ -1,0 +1,48 @@
+.outerGrid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 0.5fr 1fr 1fr;
+	/* display: inline-flex; */
+}
+.myCharacter{
+	text-align: center;
+	padding: auto;
+}
+
+.myCharacter > img{
+	width: 200px;
+	height: 260px;
+	border: solid;
+}
+.vs{
+	text-align: center;
+	vertical-align: middle;
+}
+
+.inerGridVs {
+	display: grid;
+	grid-template-rows: 1fr 1fr 1fr;
+	/* display: inline-flex; */
+}
+
+.outerGrid > div {
+	background-color: orange;
+	color: white;
+	font-size: 4vw;
+	padding: 10%;
+  }
+
+.inerGrid {
+	display: grid;
+	grid-gap: 5px;
+	grid-template-columns:  repeat(6, 1fr);
+	/* display: inline-flex; */
+}
+
+.inerGrid > div {
+	border: solid 1px;
+  }
+
+
+.profile{
+	width: 100%;
+}
