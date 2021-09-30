@@ -1,0 +1,76 @@
+.outerGrid{
+    display: grid;
+    margin: 5%;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.infoGrid{
+    display: grid;
+    margin: 5%;
+	grid-template-rows: 1fr 2fr 2fr 1fr;
+}
+
+/* .route {
+    padding: 1%;
+    background-color: black;
+} */
+.routeName{
+    padding: 1%;
+    color: white;
+    background-color: black;
+}
+
+.routeIdx{
+    padding: 1%;
+    color: orange;
+    background-color: black;
+}
+
+/* .infoGrid > div > div > span{
+    color: white;
+    background-color: black;
+} */
+
+.mapGrid{
+    display: grid;
+    background-image: url("../../public/map.png");
+    background-size: 100% 100%;
+	grid-template-columns: repeat(8, 1fr);
+}
+
+.mapGrid > div {
+    aspect-ratio: 1;
+    width: 100px;
+    color: white;
+    position: relative; 
+    z-index: 100;
+}
+
+.placeName{
+    padding: 1%;
+    color: white;
+    background-color: black;
+}
+
+.placePath{
+    padding: 1%;
+    color: white;
+    background-color: orange;
+
+}
+/* .mapGrid > div > span{
+    padding: 5%;
+    color: white;
+    background-color: black;
+} */
+
+.test{
+    position: absolute;
+    overflow: visible;
+}
+
+.test2{
+	stroke: orange;
+    stroke-width: 1px;
+}
+

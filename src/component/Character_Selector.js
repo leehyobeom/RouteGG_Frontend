@@ -18,7 +18,7 @@ export default function Character_Selector({props:{my, enemies, setMy, setEnemie
 
     function message() {
         if(!my){
-            return "아래 목록에서 내 실험체를 선택하세요"
+            return "아래 목록에서 나의 실험체를 선택하세요"
         }else if(!enemies[enemies.length - 1]){
             return "아래 목록에서 상대편 실험체를 선택하세요"
         }else{
@@ -28,7 +28,7 @@ export default function Character_Selector({props:{my, enemies, setMy, setEnemie
 
     return (
         <div>
-            <div className={styles.message} >{message()}</div>
+            <h1 className={styles.message} >{message()}</h1>
             <div className={styles.outerGrid}>
                 <div></div>
                 <div className={styles.inerGrid} >

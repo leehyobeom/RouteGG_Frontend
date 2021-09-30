@@ -39,6 +39,7 @@
 }
 
 .inerGrid > div {
+	aspect-ratio: 1;
 	border: solid 1px;
   }
 

@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic'
 import styles from '../styles/Home.module.css'
 import Character_Selector from '../src/component/Character_Selector'
 import Character_Selected from '../src/component/Character_Selected'
+import Recommand_Route from '../src/component/Recommand_Route'
 import { useState } from 'react'
 
 
@@ -21,10 +22,13 @@ const Home: NextPage = () => {
         <link rel="icon" href="/character/1.png" />
       </Head>
       <div className={styles.character_selected} >
-      <Character_Selected props ={ {my, enemies, setMy, setEnemies} }/>
+        <Character_Selected props ={ {my, enemies, setMy, setEnemies} }/>
       </div>
       <div className={styles.character_selector} >
-      <Character_Selector props ={ {my, enemies, setMy, setEnemies} } />
+        <Character_Selector props ={ {my, enemies, setMy, setEnemies} } />
+      </div>
+      <div className={styles.recommand_route}>
+        <Recommand_Route props ={ {my, enemies, setMy, setEnemies} } />
       </div>
 
     </div>

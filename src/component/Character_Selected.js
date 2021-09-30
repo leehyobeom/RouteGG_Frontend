@@ -34,8 +34,8 @@ export default function Character_Selected({props:{my, enemies, setMy, setEnemie
                 <div className={styles.inerGrid}>
                     {
                         enemies.map( (e, i)=>{return (
-                                <div key={i} className={e?styles.enemy:styles.noEnemy}>
-                                <img src={`/character/${e}/Mini.png`} className={styles.profile} onClick={() => {cancel_Enemy_Cahracter(i)}}/>
+                                <div key={i} >
+                                    <img src={`/character/${e}/Mini.png`} className={styles.profile} onClick={() => {cancel_Enemy_Cahracter(i)}}/>
                                 </div>
                             )
                         })
