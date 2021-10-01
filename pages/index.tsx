@@ -7,12 +7,22 @@ import Character_Selected from '../src/component/Character_Selected'
 import Recommand_Route from '../src/component/Recommand_Route'
 import { useState } from 'react'
 
+//const Recommand_Route = dynamic(()=> import('../src/component/Recommand_Route'))
 
-
+// export async function getServerSideProps(context: any) {
+  
+//   console.log("context: ", context);
+//   return {
+//     props: {test:"test"}, 
+//   };
+// }
 const Home: NextPage = () => {
 
   const [my, setMy] = useState(0);
   const [enemies, setEnemies] = useState(new Array(17).fill(0));
+  const [route, setRoute] = useState([1,3]);
+  const [routeId, setRoteId] = useState(123123);
+
 
   return (
     <div className={styles.container}>
@@ -25,10 +35,10 @@ const Home: NextPage = () => {
         <Character_Selected props ={ {my, enemies, setMy, setEnemies} }/>
       </div>
       <div className={styles.character_selector} >
-        <Character_Selector props ={ {my, enemies, setMy, setEnemies} } />
+        <Character_Selector props ={ {my, enemies, setMy, setEnemies, setRoute, setRoteId} } />
       </div>
       <div className={styles.recommand_route}>
-        <Recommand_Route props ={ {my, enemies, setMy, setEnemies} } />
+        <Recommand_Route props ={ {my, enemies, setMy, setEnemies, route, routeId} } />
       </div>
 
     </div>

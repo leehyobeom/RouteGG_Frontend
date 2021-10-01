@@ -1,29 +1,28 @@
 import styles from './Recommand_Route.module.css';
 import ko from '../lang/ko';
+import { useState } from 'react';
+import Router from "next/router";
 
 
 
-export default function Recommand_Route({props:{my, enemies, setMy, setEnemies}}){
+export default function Recommand_Route({props:{my, enemies, setMy, setEnemies, route, routeId}}){
     const area = ko.area;
     const mapArr = new Array(72).fill("");
-    
+
     area.forEach((e)=>{
         mapArr[e.mapNum] = e.name;
     })
-    let route = [1, 7, 16, 10 ,11]
 
     function checkSelected(){
         return (enemies[enemies.length - 1] && my)? true : false;
     }
 
     function getRouteId(){
-        route = [1, 7, 5, 10 ,11]
-
         if(!checkSelected()) return "";
         if(enemies[enemies.length - 1] && my){
             return (<div>
                     <span className={styles.routeIdx}>{`Route ID: `}</span>
-                    <span className={styles.routeName}>{`101234`}</span>
+                    <span className={styles.routeName}>{routeId}</span>
                     </div>
                 );
         }
@@ -56,8 +55,6 @@ export default function Recommand_Route({props:{my, enemies, setMy, setEnemies}}
     }
 
     function getRouteLine(pathNum, index){
-
-        console.log("pathNum: ", pathNum);
         if(route.length -1 === pathNum ) return "";
         const mapNextIdx = area[route[pathNum+1]-1].mapNum;
 
@@ -75,8 +72,6 @@ export default function Recommand_Route({props:{my, enemies, setMy, setEnemies}}
             x: lineEndPoint.x - lineStartPoint.x,
             y: lineEndPoint.y - lineStartPoint.y
         }
-        console.log(line.x * 100);
-        console.log(line.y * 100);
 
         return (<svg  className={styles.test}>
                     <line x1="0" y1="0" x2={line.x * 100} y2={line.y * 100} className={styles.test2} ></line>
