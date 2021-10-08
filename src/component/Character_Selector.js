@@ -11,20 +11,21 @@ export default function Character_Selector({props:{my, enemies, setMy, setEnemie
         if(!my){
             setMy(characterNum);
             if(enemies[enemies.length - 1]){
-                enemiesTemp[enemiesTemp.length - 1] = characterNum;
-                enemiesTemp.sort((a, b) => b - a);
                 getRecommandRouteFromBackend(enemiesTemp, characterNum)
+            } else{
+                getRecommandRouteFromBackend(enemiesTemp, my)
             }
          }else if(!enemies[enemies.length - 1]){
             enemiesTemp[enemiesTemp.length - 1] = characterNum;
             enemiesTemp.sort((a, b) => b - a);
             setEnemies(enemiesTemp);
-            getRecommandRouteFromBackend(enemiesTemp, characterNum)
+            getRecommandRouteFromBackend(enemiesTemp, my)
          }
+
     }
 
     function getRecommandRouteFromBackend(enemiesTemp, characterNum) {  
-
+        if(!characterNum) return
         const enemy_character_count = new Array(100).fill(0);
 
         enemiesTemp.forEach((e)=>{
@@ -49,12 +50,12 @@ export default function Character_Selector({props:{my, enemies, setMy, setEnemie
                 }
               }`})
         }
-        fetch(`http://localhost:3001/graphql`, option).then(
+        fetch(`http://${process.env.host}/graphql`, option).then(
             res=> res.json()
         ).then(
             data => {
-                setRoteId(data.data.getRecommandRoute.routeId);
-                setRoute(data.data.getRecommandRoute.route.split(', ').map((e)=> Number(e)));
+                setRoteId(data.data?.getRecommandRoute?.routeId);
+                setRoute(data.data?.getRecommandRoute?.route.split(', ').map((e)=> Number(e)));
         }
         );
     }

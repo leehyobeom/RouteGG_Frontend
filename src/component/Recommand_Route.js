@@ -33,11 +33,13 @@ export default function Recommand_Route({props:{my, enemies, setMy, setEnemies, 
         if(!checkSelected()) return "";
    
         const mapIdx = area.findIndex((e,i)=> e.mapNum === index);
-    
         if(mapIdx === -1){
             return ""
         }
 
+        if(!route){
+            return ""
+        }
         const pathNum = route.findIndex((e,i)=> e === mapIdx + 1);
 
 
@@ -85,7 +87,7 @@ export default function Recommand_Route({props:{my, enemies, setMy, setEnemies, 
 
         if(!checkSelected()) return "";
    
-        return route.map((e,i)=>{
+        return route?.map((e,i)=>{
             return (<div key={i} className={styles.route}>
                         <span className={styles.routeIdx}>{i+1}</span>
                         <span className={styles.routeName}>{area[e-1].name}</span>
